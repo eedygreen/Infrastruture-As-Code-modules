@@ -5,7 +5,7 @@ locals {
             value = value
         }
     ]
-    units_path = find_in_parent_folders("terraform/modules")//units
+    units_path = "${get_path_to_repo_root()}//units"
 }
 
 unit "cluster" {
