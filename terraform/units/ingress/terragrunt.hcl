@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-    source = "${find_in_parent_folders("infrastructure/modules")}//ingress"
+    source = "${find_in_parent_folders("terraform/modules")}//ingress"
     
 }
 
