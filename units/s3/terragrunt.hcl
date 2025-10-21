@@ -3,7 +3,7 @@ include "root" {
 }
 
 terraform {
-    source = "${find_in_parent_folders("terraform/modules")}//s3"
+    source = "${replace(get_path_to_repo_root(), "//units/", "//modules/")}s3"
 }
 
 inputs = {
