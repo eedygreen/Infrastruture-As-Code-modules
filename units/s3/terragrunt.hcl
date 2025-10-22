@@ -12,7 +12,7 @@ locals {
 
 
 terraform {
-    source =  "${local.conf.locals.base_repo}//modules/ingress?ref=${local.conf.locals.versions.ingress}" 
+    source =  "${local.conf.locals.base_repo}//modules/s3?ref=${local.conf.locals.versions.s3}" 
     # source = local.source_url #for environment deployment
 }
 
