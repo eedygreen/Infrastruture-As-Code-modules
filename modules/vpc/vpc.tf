@@ -15,6 +15,7 @@ data "aws_security_group" "default" {
 }
 
 resource "aws_eip" "nat" {
+  count = 3
   domain = "vpc"
   tags = merge(
     tomap({
@@ -27,7 +28,7 @@ resource "aws_eip" "nat" {
 }
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "3.19.0"
+  version = "6.5.0"
 
   name = "${var.env}-vpc"
 
@@ -52,7 +53,7 @@ module "vpc" {
   enable_nat_gateway  = true
   single_nat_gateway  = true
   reuse_nat_ips       = true
-  external_nat_ip_ids = aws_eip.nat.*.id
+  external_nat_ip_ids = "${aws_eip.nat.*.id}"
 
   manage_default_security_group = true
   manage_default_network_acl    = true
