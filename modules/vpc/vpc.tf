@@ -66,7 +66,7 @@ module "vpc" {
       "Env"       = var.env,
       "Terraform" = "true"
     })
-  )Environment
+  )
 
   public_subnet_tags = merge(
     tomap({
