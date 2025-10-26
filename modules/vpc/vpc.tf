@@ -15,8 +15,6 @@ data "aws_security_group" "default" {
 }
 
 resource "aws_eip" "nat" {
-  count = 1
-  vpc   = true
   tags = merge(
     tomap({
       "Name"      = "${var.env}-eip",
